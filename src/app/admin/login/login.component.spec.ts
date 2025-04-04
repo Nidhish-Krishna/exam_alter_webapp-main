@@ -13,7 +13,7 @@ describe('LoginComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() = {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
