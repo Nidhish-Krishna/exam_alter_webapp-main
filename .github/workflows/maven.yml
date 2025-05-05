@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Trigger Azure Databricks job
         run: |
-          curl -X POST https://https://adb-3991471668185668.8.azuredatabricks.net/api/2.1/jobs/run-now \
+          curl -X POST https://adb-3991471668185668.8.azuredatabricks.net/api/2.1/jobs/run-now \
             -H "Authorization: Bearer ${{ secrets.DATABRICKS_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{
