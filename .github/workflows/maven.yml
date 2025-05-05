@@ -1,14 +1,22 @@
-name: Test Self-Hosted Runner
+name: Trigger Databricks on PR
 
 on:
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+  pull_request:
+    types: [opened, reopened, synchronize]  # Trigger on PR creation/updates
 
 jobs:
-  test-runner:
-    runs-on: self-hosted  # This ensures it runs on your Mac
-    steps:
-      - name: Print runner name
-        run: echo "Running on $RUNNER_NAME"
+  trigger-databricks:
+    runs-on: githubRunner
 
-      - name: Show system info
-        run: uname -a
+    steps:
+      - name: Trigger Azure Databricks job
+        run: |
+          curl -X POST https://<your-databricks-instance>/api/2.1/jobs/run-now \
+            -H "Authorization: Bearer ${{ secrets.DATABRICKS_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "job_id": 491994082956907,
+              "notebook_params": {
+                "branch": "${{ github.ref_name }}"
+              }
+            }'
