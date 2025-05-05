@@ -1,0 +1,14 @@
+name: Test Self-Hosted Runner
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  test-runner:
+    runs-on: self-hosted  # This ensures it runs on your Mac
+    steps:
+      - name: Print runner name
+        run: echo "Running on $RUNNER_NAME"
+
+      - name: Show system info
+        run: uname -a
