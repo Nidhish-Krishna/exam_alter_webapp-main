@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Trigger Azure Databricks job
         run: |
-          curl -X POST https://<your-databricks-instance>/api/2.1/jobs/run-now \
+          curl -X POST https://https://adb-3991471668185668.8.azuredatabricks.net/api/2.1/jobs/run-now \
             -H "Authorization: Bearer ${{ secrets.DATABRICKS_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{
-              "job_id": 491994082956907,
+              "job_id": 252261088968757,
               "notebook_params": {
                 "branch": "${{ github.ref_name }}"
               }
