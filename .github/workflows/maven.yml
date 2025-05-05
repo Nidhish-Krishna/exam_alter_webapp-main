@@ -1,6 +1,7 @@
 name: Trigger Databricks on PR
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, reopened, synchronize]  # Trigger on PR creation/updates
 
