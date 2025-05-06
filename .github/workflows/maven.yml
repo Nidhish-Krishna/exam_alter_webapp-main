@@ -18,6 +18,7 @@ jobs:
             -d '{
               "job_id": 835268208617308,
               "notebook_params": {
-                "branch": "${{ github.ref_name }}"
+                "branch": "${{ github.ref_name }}",
+                "pr_number": "${{ github.event.pull_request.number }}"
               }
             }'
