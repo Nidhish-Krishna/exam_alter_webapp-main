@@ -9,14 +9,17 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ]
+      
     })
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() = {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    fixture.detectChanges();
+    fixture.saveChanges();
   });
 
   it('should create', () => {
